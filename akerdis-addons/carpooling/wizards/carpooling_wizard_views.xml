@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_carpooling_wizard_form" model="ir.ui.view">
+            <field name="name">carpooling.wizard.form</field>
+            <field name="model">carpooling.wizard</field>
+            <field name="arch" type="xml">
+                <form name="Search a trip">
+                    <group>
+                        <field name="departure"/>
+                        <field name="destination"/>
+                        <field name="departure_date"/>
+                    </group>
+                    <footer>
+                        <button string="Search" type="object" name="search_trip" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+
+            </field>
+
+        </record>
+
+        <record id="find_carpool_action" model="ir.actions.act_window">
+            <field name="name">Find a carpool</field>
+            <field name="res_model">carpooling.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+
+        </record>
+    </data>
+</odoo>

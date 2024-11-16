@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+carpooling.access_carpooling_carpooling,access_carpooling_carpooling,carpooling.model_carpooling_carpooling,base.group_user,1,1,1,1
+carpooling.access_car_car,access_car_car,carpooling.model_car_car,base.group_user,1,1,1,1
+carpooling.access_tag_tag,access_tag_tag,carpooling.model_tag_tag,base.group_user,1,1,1,1
+carpooling.access_carpooling_wizard,access_carpooling_wizard,carpooling.model_carpooling_wizard,base.group_user,1,1,1,1
+carpooling.access_test_abstract,access_test_abstract,carpooling.model_test_abstract,base.group_user,1,1,1,1
+carpooling.access_res_partner,access_res_partner,carpooling.model_res_partner,base.group_user,1,1,1,1

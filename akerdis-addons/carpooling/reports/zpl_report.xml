@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="report_zpl_car" model="ir.actions.report">
+        <field name="name">ZPL Car</field>
+        <field name="model">carpooling.carpooling</field>
+        <field name="report_type">qweb-text</field>
+        <field name="report_name">carpooling.template_car_traveling</field>
+        <field name="binding_model_id" ref="carpooling.model_carpooling_carpooling" />
+        <field name="binding_type">report</field>   
+    </record>
+    <template id="template_zpl_car">
+        <t t-foreach="docs" t-as="doc">
+            ^FO220,50^FD<t t-esc="doc.name"/>^FS
+            ^FO220,50^BC^FD002564^FS
+        </t>
+  </template>      
+</odoo>
+    

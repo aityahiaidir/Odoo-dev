@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="report_car_traveling" model="ir.actions.report">
+        <field name="name">Car Traveling</field>
+        <field name="model">carpooling.carpooling</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">carpooling.template_car_traveling</field>
+        <field name="binding_model_id" ref="carpooling.model_carpooling_carpooling" />
+        <field name="binding_type">report</field>   
+    </record>
+
+    <template id="template_car_traveling">
+       <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="doc">
+            <t t-call="carpooling.report_car_traveling_real"/>
+        </t>
+     </t>
+   </template>
+
+    <template id="report_car_traveling_real">
+        <t t-call="web.external_layout">
+                <p>Hello world</p>
+                <p t-esc="doc.name+ ' '+'Le Nom'"/>
+                <p t-field="doc.name"/>
+                <p t-if="doc.state == 'new'">NEW</p>
+                <p t-else="">OLD</p>
+                <p t-foreach="doc.tag_ids" t-as="tag">
+                   <p t-esc="tag.name"/>
+                </p>
+            </t>
+
+    </template>
+
+    <record id="paperformat_a4_landscape" model="report.paperformat">
+        <field name="name">A4 Landscape</field>
+        <field name="default" eval="False"/>
+        <field name="format">custom</field>
+        <field name="page_height">297</field>
+        <field name="page_width">210</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">30</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="margin_bottom">25</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">20</field>
+        <field name="report_ids" eval="[(6,0,[ref('carpooling.report_car_traveling')])]"/>
+        <field name="dpi">90</field>
+    </record>
+
+</odoo>
